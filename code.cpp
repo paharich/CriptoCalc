@@ -7,7 +7,7 @@ int main()
 { 
     setlocale(LC_ALL, "Russian");
     
-    double money;
+    double money, result, percent;
     float in, out;  //Точки закупки и продажи
     double taker, maker;  //Комиссия за покупку и продажу
     char menu;
@@ -22,16 +22,24 @@ int main()
       case '1':
         cout << "ПРЕДВАРИТЕЛЬНЫЙ ДОХОД\n\n";
 
-        cout << "Для расчёта введите: \n\tНа сколько USDT закупились: ";
+        cout << "Для расчёта введите: \nНа сколько USDT закупились: ";
         cin >> money;
-        cout << "\n\tЦену монеты на момент покупки: ";
+        cout << "\nЦену монеты на момент покупки: ";
         cin >> in;
-        cout << "\n\tЦену монеты на момент продажи: ";
+        cout << "\nЦену монеты на момент продажи: ";
         cin >> out;
-        cout << "\n\tКомиссия биржы с покупки: ";
+        cout << "\nКомиссия биржы с покупки: ";
         cin >> taker;
-        cout << "\n\tКомиссия биржы с продажи: ";
+        cout << "\nКомиссия биржы с продажи: ";
         cin >> maker;
+
+      percent = ((out - in) / in) * 100;
+      percent = percent / 100;
+
+      result = percent * money + money;
+      percent = percent * 100;
+      
+
       break;
       case '2':
         cout << "ТОЧКА ВЫХОДА В 'НОЛЬ'\n";
@@ -44,5 +52,8 @@ int main()
       
       break;
     }
+    cout << "Итого: " << result << "USDT\n";
+    cout << "Процент: "<< percent << "%";
+
     return 0; 
 } 
