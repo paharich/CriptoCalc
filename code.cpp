@@ -1,7 +1,8 @@
 //Версия 1.0
 #include<iostream>  
-  
-using namespace std; 
+
+using std::cout;  
+using std::cin; 
 
 int main() 
 { 
@@ -33,18 +34,18 @@ int main()
         cout << "\nКомиссия биржы с продажи: ";
         cin >> maker;
 
-      percent = ((out - in) / in) * 100;
-      percent = percent / 100;
+      percent = ((out - in) / in) * 100;  //Формула для расчёта процента
+      percent = percent / 100;  //нормальные проценты, не такие как к примеру 0.56 это 56%
 
-      result = percent * money + money;
-      percent = percent * 100;
+      result = percent * money + money; // Получение результата без комисси биржы
+      percent = percent * 100;  // Получение результата в процентах
       
 
       break;
       case '2':
         cout << "ТОЧКА ВЫХОДА В 'НОЛЬ'\n";
 
-        cout << "Для расчёта введите цену монеты на момент покупки: " << endl;
+        cout << "Для расчёта введите цену монеты на момент покупки: \n";
 
         cin >> in;  //Точка закупки
       break;
@@ -52,7 +53,7 @@ int main()
       
       break;
     }
-    cout << "Итого: " << result << "USDT\n";
+    cout << "Итого: " << result << " USDT\n";
     cout << "Процент: "<< percent << "%";
 
     return 0; 
